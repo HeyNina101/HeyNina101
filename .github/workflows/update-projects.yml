@@ -3,13 +3,12 @@ on:
   workflow_dispatch:
   schedule:
     - cron: '0 0 * * 0'
-
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      
+
       - name: Set up Python
         uses: actions/setup-python@v4
         with:
@@ -28,17 +27,20 @@ jobs:
           import sys
 
           user = "HeyNina101"
-          url = f"https://api.github.com/users/{user}/repos?sort=updated&per_page=15"
-          
+
           try:
-              response = requests.get(url)
+              response = requests.get(
+                  f"https://api.github.com/users/{user}/repos?sort=updated&per_page=15",
+                  headers={"Authorization": f"token ${{ secrets.GITHUB_TOKEN }}"}
+              )
+              response.raise_for_status()
               repos = response.json()
               projects = [r for r in repos if r['name'].lower() != user.lower() and not r['fork']][:5]
           except Exception as e:
               print(f"Error fetching repos: {e}")
               sys.exit(1)
 
-          markdown_list = ""
+          markdown_list = "\n"
           for repo in projects:
               desc = repo['description'] if repo['description'] else "No description"
               markdown_list += f"- **[{repo['name']}]({repo['html_url']})**: {desc}\n"
@@ -46,19 +48,21 @@ jobs:
           with open("README.md", "r", encoding="utf-8") as f:
               content = f.read()
 
-          start_tag = ""
-          end_tag = ""
+          start_tag = "<!-- PROJECTS:START -->"
+          end_tag = "<!-- PROJECTS:END -->"
 
           if start_tag not in content or end_tag not in content:
-              print("Tags not found. Skipping update.")
+              print("Tags not found in README.md — skipping update.")
               sys.exit(0)
 
-          pattern = rf"{start_tag}.*?{end_tag}"
-          replacement = f"{start_tag}\n\n{markdown_list}\n{end_tag}"
+          pattern = re.escape(start_tag) + ".*?" + re.escape(end_tag)
+          replacement = f"{start_tag}{markdown_list}{end_tag}"
           new_content = re.sub(pattern, replacement, content, flags=re.DOTALL)
 
           with open("README.md", "w", encoding="utf-8") as f:
               f.write(new_content)
+
+          print("README updated successfully.")
           EOF
 
       - name: Commit and push
@@ -66,5 +70,5 @@ jobs:
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
           git add README.md
-          git commit -m "docs: safe update projects list" || exit 0
+          git commit -m "docs: update projects [skip ci]" || exit 0
           git push
