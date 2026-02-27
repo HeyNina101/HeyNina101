@@ -1,25 +1,59 @@
-name: Weekly Projects Update
+name: Update Projects
 on:
+  workflow_dispatch:
   schedule:
-    # Runs automatically every Sunday at 00:00
-    - cron: '0 0 * * 0' 
-  workflow_dispatch: # Allows manual execution from the Actions tab
+    - cron: '0 0 * * 0'
 
 jobs:
-  update-readme:
+  build:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
-
-      - name: Update project list
-        uses: gautamkrishnar/blog-post-workflow@master
+      - uses: actions/checkout@v4
+      
+      - name: Set up Python
+        uses: actions/setup-python@v4
         with:
-          # Must match the placeholder tags in your README.md
-          comment_tag_name: "REPO-LAST-5"
-          # Your GitHub profile activity feed
-          feed_list: "https://github.com/ninadurann.atom"
-          # Maximum number of projects to display
-          max_post_count: 5
-          # Output format for each project
-          template: "<li><a href='$url'>$title</a>: $description</li>"
+          python-version: '3.x'
+
+      - name: Install dependencies
+        run: pip install requests
+
+      - name: Update README
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          python - <<EOF
+          import requests
+          import os
+          import re
+
+          user = "ninadurann"
+          url = f"https://api.github.com/users/{user}/repos?sort=updated&per_page=10"
+          response = requests.get(url)
+          repos = response.json()
+
+          projects = [r for r in repos if r['name'] != user and r['description']][:5]
+          
+          markdown_list = "### 🛠️ Latest Projects\n\n"
+          for repo in projects:
+              description = repo['description'] if repo['description'] else "No description"
+              markdown_list += f"- **[{repo['name']}]({repo['html_url']})**: {description}\n"
+
+          with open("README.md", "r", encoding="utf-8") as f:
+              content = f.read()
+
+          pattern = r".*?"
+          replacement = f"\n{markdown_list}\n"
+          new_content = re.sub(pattern, replacement, content, flags=re.DOTALL)
+
+          with open("README.md", "w", encoding="utf-8") as f:
+              f.write(new_content)
+          EOF
+
+      - name: Commit and push
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git add README.md
+          git commit -m "docs: auto-update projects list" || exit 0
+          git push
