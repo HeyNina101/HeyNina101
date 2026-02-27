@@ -23,10 +23,10 @@ class AIEngineer:
 ---
 ## Projects
 <!-- PROJECTS:START -->
-- **[generative_ai_project](https://github.com/HeyNina101/generative_ai_project)**: A production-ready template to kickstart your Generative AI projects with structure and scalability in mind.
-- **[ai-agent-starter-kit](https://github.com/HeyNina101/ai-agent-starter-kit)**: A collection of expert guides and tutorials on how to build real AI agents. Includes resources from OpenAI, Anthropic, Google, and others working on production-level systems
-- **[ai-agents-101](https://github.com/HeyNina101/ai-agents-101)**: No description
-- **[aimin](https://github.com/HeyNina101/aimin)**: Real AI use cases focused on backend automation, agent-based workflows, RAG pipelines, and system-level integrations using Python, Make, n8n, and local LLMs. Designed to support AI-first product thinking through executable, modular examples built for real systems.
+- **[ai-agents-101](https://github.com/HeyNina101/ai-agents-101)** ⭐ 33 — No description 
+- **[generative_ai_project](https://github.com/HeyNina101/generative_ai_project)** ⭐ 885 — A production-ready template to kickstart your Generative AI projects with structure and scalability in mind. 
+- **[ai-agent-starter-kit](https://github.com/HeyNina101/ai-agent-starter-kit)** ⭐ 377 — A collection of expert guides and tutorials on how to build real AI agents. Includes resources from OpenAI, Anthropic, Google, and others working on production-level systems 
+- **[aimin](https://github.com/HeyNina101/aimin)** ⭐ 14 — Real AI use cases focused on backend automation, agent-based workflows, RAG pipelines, and system-level integrations using Python, Make, n8n, and local LLMs. Designed to support AI-first product thinking through executable, modular examples built for real systems. 
 <!-- PROJECTS:END -->
 
 ---
