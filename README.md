@@ -20,26 +20,26 @@ class AIDeveloper:
 <!-- PROJECTS:START -->
 
 #### 🔗 [generative_ai_project](https://github.com/HeyNina101/generative_ai_project)
-![Stars](https://img.shields.io/badge/★_886-F5C518?style=flat-square&logoColor=white) ![License](https://img.shields.io/badge/Unlicensed-8FA3A8?style=flat-square&logoColor=white)
-![Python](https://img.shields.io/badge/Python-4A6355?style=flat-square&logo=python&logoColor=white)
+![Stars](https://img.shields.io/badge/★_886-000000?style=flat-square&logoColor=white) ![License](https://img.shields.io/badge/Unlicensed-000000?style=flat-square&logoColor=white)
+![Python](https://img.shields.io/badge/Python-000000?style=flat-square&logo=python&logoColor=white)
 
 > A production-ready template to kickstart your Generative AI projects with structure and scalability in mind.
 
 #### 🔗 [ai-agent-starter-kit](https://github.com/HeyNina101/ai-agent-starter-kit)
-![Stars](https://img.shields.io/badge/★_377-F5C518?style=flat-square&logoColor=white) ![License](https://img.shields.io/badge/NOASSERTION-8FA3A8?style=flat-square&logoColor=white)
-![Python](https://img.shields.io/badge/Python-4A6355?style=flat-square&logo=python&logoColor=white) ![AI_Agents](https://img.shields.io/badge/AI_Agents-2C3B35?style=flat-square&logoColor=white) ![OpenAI](https://img.shields.io/badge/OpenAI-B8C4CB?style=flat-square&logoColor=white) ![Anthropic](https://img.shields.io/badge/Anthropic-B8C4CB?style=flat-square&logoColor=white)
+![Stars](https://img.shields.io/badge/★_377-000000?style=flat-square&logoColor=white) ![License](https://img.shields.io/badge/NOASSERTION-000000?style=flat-square&logoColor=white)
+![Python](https://img.shields.io/badge/Python-000000?style=flat-square&logo=python&logoColor=white) ![AI_Agents](https://img.shields.io/badge/AI_Agents-000000?style=flat-square&logoColor=white) ![OpenAI](https://img.shields.io/badge/OpenAI-000000?style=flat-square&logoColor=white) ![Anthropic](https://img.shields.io/badge/Anthropic-000000?style=flat-square&logoColor=white)
 
 > A collection of expert guides and tutorials on how to build real AI agents. Includes resources from OpenAI, Anthropic, Google, and others working on production-level systems
 
 #### 🔗 [ai-agents-101](https://github.com/HeyNina101/ai-agents-101)
-![Stars](https://img.shields.io/badge/★_33-F5C518?style=flat-square&logoColor=white) ![License](https://img.shields.io/badge/Apache--2.0-8FA3A8?style=flat-square&logoColor=white)
-![Python](https://img.shields.io/badge/Python-4A6355?style=flat-square&logo=python&logoColor=white) ![AI_Agents](https://img.shields.io/badge/AI_Agents-2C3B35?style=flat-square&logoColor=white)
+![Stars](https://img.shields.io/badge/★_33-000000?style=flat-square&logoColor=white) ![License](https://img.shields.io/badge/Apache--2.0-000000?style=flat-square&logoColor=white)
+![Python](https://img.shields.io/badge/Python-000000?style=flat-square&logo=python&logoColor=white) ![AI_Agents](https://img.shields.io/badge/AI_Agents-000000?style=flat-square&logoColor=white)
 
 > No description
 
 #### 🔗 [aimin](https://github.com/HeyNina101/aimin)
-![Stars](https://img.shields.io/badge/★_14-F5C518?style=flat-square&logoColor=white) ![License](https://img.shields.io/badge/MIT-8FA3A8?style=flat-square&logoColor=white)
-![Python](https://img.shields.io/badge/Python-4A6355?style=flat-square&logo=python&logoColor=white) ![RAG](https://img.shields.io/badge/RAG-2C3B35?style=flat-square&logoColor=white) ![AI_Agents](https://img.shields.io/badge/AI_Agents-2C3B35?style=flat-square&logoColor=white) ![LLM](https://img.shields.io/badge/LLM-2C3B35?style=flat-square&logoColor=white) ![Workflow](https://img.shields.io/badge/Workflow-8FA3A8?style=flat-square&logoColor=white) ![Automation](https://img.shields.io/badge/Automation-8FA3A8?style=flat-square&logoColor=white) ![Make](https://img.shields.io/badge/Make-8FA3A8?style=flat-square&logoColor=white) ![n8n](https://img.shields.io/badge/n8n-8FA3A8?style=flat-square&logoColor=white)
+![Stars](https://img.shields.io/badge/★_14-000000?style=flat-square&logoColor=white) ![License](https://img.shields.io/badge/MIT-000000?style=flat-square&logoColor=white)
+![Python](https://img.shields.io/badge/Python-000000?style=flat-square&logo=python&logoColor=white) ![RAG](https://img.shields.io/badge/RAG-000000?style=flat-square&logoColor=white) ![AI_Agents](https://img.shields.io/badge/AI_Agents-000000?style=flat-square&logoColor=white) ![LLM](https://img.shields.io/badge/LLM-000000?style=flat-square&logoColor=white) ![Workflow](https://img.shields.io/badge/Workflow-000000?style=flat-square&logoColor=white) ![Automation](https://img.shields.io/badge/Automation-000000?style=flat-square&logoColor=white) ![Make](https://img.shields.io/badge/Make-000000?style=flat-square&logoColor=white) ![n8n](https://img.shields.io/badge/n8n-000000?style=flat-square&logoColor=white)
 
 > Real AI use cases focused on backend automation, agent-based workflows, RAG pipelines, and system-level integrations using Python, Make, n8n, and local LLMs. Designed to support AI-first product thinking through executable, modular examples built for real systems.
 
