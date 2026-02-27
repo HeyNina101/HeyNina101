@@ -33,9 +33,9 @@ class AIDeveloper:
 
 #### 🔗 [ai-agents-101](https://github.com/HeyNina101/ai-agents-101)
 ![Stars](https://img.shields.io/badge/⭐_stars-33-FFD700?style=flat-square&logo=github&logoColor=white) ![License](https://img.shields.io/badge/license-Apache--2.0-22C55E?style=flat-square)
-![Python](https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white) ![AI_Agents](https://img.shields.io/badge/AI_Agents-7C3AED?style=flat-square&logoColor=white)
+![Python](https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white) ![AI_Agents](https://img.shields.io/badge/AI_Agents-7C3AED?style=flat-square&logoColor=white) ![LLM](https://img.shields.io/badge/LLM-0EA5E9?style=flat-square&logoColor=white) ![Automation](https://img.shields.io/badge/Automation-F59E0B?style=flat-square&logoColor=white)
 
-> No description
+> Learn to build powerful AI agents from scratch. This repository contains tutorials, examples, and production-ready code for implementing intelligent automation with LLMs and multi-agent systems.
 
 #### 🔗 [aimin](https://github.com/HeyNina101/aimin)
 ![Stars](https://img.shields.io/badge/⭐_stars-14-FFD700?style=flat-square&logo=github&logoColor=white) ![License](https://img.shields.io/badge/license-MIT-22C55E?style=flat-square)
