@@ -27,12 +27,12 @@ jobs:
           import os
           import re
 
-          user = "ninadurann"
+          user = "HeyNina101"
           url = f"https://api.github.com/users/{user}/repos?sort=updated&per_page=10"
           response = requests.get(url)
           repos = response.json()
 
-          projects = [r for r in repos if r['name'] != user and r['description']][:5]
+          projects = [r for r in repos if r['name'].lower() != user.lower() and r['description']][:5]
           
           markdown_list = "### 🛠️ Latest Projects\n\n"
           for repo in projects:
