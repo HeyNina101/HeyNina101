@@ -21,3 +21,8 @@ class AIEngineer:
 </div>
 
 ---
+
+<!-- PROJECTS:START -->
+<!-- PROJECTS:END -->
+
+---
