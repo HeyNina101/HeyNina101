@@ -27,11 +27,12 @@ jobs:
           import sys
 
           user = "HeyNina101"
+          headers = {"Authorization": f"token ${{ secrets.GITHUB_TOKEN }}"}
 
           try:
               response = requests.get(
-                  f"https://api.github.com/users/{user}/repos?sort=updated&per_page=15",
-                  headers={"Authorization": f"token ${{ secrets.GITHUB_TOKEN }}"}
+                  f"https://api.github.com/users/{user}/repos?sort=stars&per_page=20",
+                  headers=headers
               )
               response.raise_for_status()
               repos = response.json()
@@ -42,8 +43,13 @@ jobs:
 
           markdown_list = "\n"
           for repo in projects:
-              desc = repo['description'] if repo['description'] else "No description"
-              markdown_list += f"- **[{repo['name']}]({repo['html_url']})**: {desc}\n"
+              name = repo['name']
+              url = repo['html_url']
+              desc = repo.get('description') or 'No description'
+              stars = repo.get('stargazers_count', 0)
+              license_info = repo.get('license')
+              license_name = license_info['spdx_id'] if license_info else 'No license'
+              markdown_list += f"- **[{name}]({url})** ⭐ {stars} — {desc} `{license_name}`\n"
 
           with open("README.md", "r", encoding="utf-8") as f:
               content = f.read()
