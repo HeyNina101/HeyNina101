@@ -29,10 +29,9 @@ jobs:
           user = "HeyNina101"
           headers = {"Authorization": f"token ${{ secrets.GITHUB_TOKEN }}"}
 
-          # Keywords to detect in description/topics → badge
           AI_TAGS = [
               ("RAG",        "RAG",         "FF6B6B"),
-              ("agent",      "AI Agents",   "7C3AED"),
+              ("agent",      "AI_Agents",   "7C3AED"),
               ("llm",        "LLM",         "0EA5E9"),
               ("openai",     "OpenAI",      "412991"),
               ("anthropic",  "Anthropic",   "C97B45"),
@@ -41,7 +40,7 @@ jobs:
               ("ollama",     "Ollama",      "444444"),
               ("gemini",     "Gemini",      "1A73E8"),
               ("mistral",    "Mistral",     "FF7000"),
-              ("vector",     "Vector DB",   "8B5CF6"),
+              ("vector",     "Vector_DB",   "8B5CF6"),
               ("workflow",   "Workflow",    "0D9488"),
               ("automation", "Automation",  "F59E0B"),
               ("make",       "Make",        "6D28D9"),
@@ -58,13 +57,11 @@ jobs:
               for keyword, label, color in AI_TAGS:
                   if keyword.lower() in text and label not in seen:
                       seen.add(label)
-                      safe_label = label.replace("-", "--").replace(" ", "_")
+                      safe_label = label.replace("-", "--")
                       badges.append(
                           f"![{label}](https://img.shields.io/badge/{safe_label}-{color}?style=flat-square&logoColor=white)"
                       )
-              # Always add Python badge
-              if "python" not in seen:
-                  badges.insert(0, "![Python](https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white)")
+              badges.insert(0, "![Python](https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white)")
               return " ".join(badges)
 
           try:
@@ -74,22 +71,29 @@ jobs:
               )
               response.raise_for_status()
               repos = response.json()
-              projects = [r for r in repos if r['name'].lower() != user.lower() and not r['fork']][:5]
+              # FIX: ordenar de más a menos estrellas
+              projects = sorted(
+                  [r for r in repos if r['name'].lower() != user.lower() and not r['fork']],
+                  key=lambda x: x['stargazers_count'],
+                  reverse=True
+              )[:5]
           except Exception as e:
               print(f"Error fetching repos: {e}")
               sys.exit(1)
 
           markdown_list = "\n"
           for repo in projects:
-              name          = repo['name']
-              url           = repo['html_url']
-              desc          = repo.get('description') or 'No description'
-              stars         = repo.get('stargazers_count', 0)
-              license_info  = repo.get('license')
-              license_label = license_info['spdx_id'] if license_info else 'No License'
+              name         = repo['name']
+              url          = repo['html_url']
+              desc         = repo.get('description') or 'No description'
+              stars        = repo.get('stargazers_count', 0)
+              license_info = repo.get('license')
+              # FIX: sin espacios y con guiones escapados para URL válida
+              license_label = license_info['spdx_id'] if license_info else 'Unlicensed'
+              safe_license  = license_label.replace("-", "--").replace(" ", "_")
 
               stars_badge = f"![Stars](https://img.shields.io/badge/⭐_stars-{stars}-FFD700?style=flat-square&logo=github&logoColor=white)"
-              lic_badge   = f"![License](https://img.shields.io/badge/license-{license_label}-22C55E?style=flat-square)"
+              lic_badge   = f"![License](https://img.shields.io/badge/license-{safe_license}-22C55E?style=flat-square)"
               ai_badges   = get_ai_badges(repo)
 
               markdown_list += (
