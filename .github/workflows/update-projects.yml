@@ -1,0 +1,25 @@
+name: Weekly Projects Update
+on:
+  schedule:
+    # Runs automatically every Sunday at 00:00
+    - cron: '0 0 * * 0' 
+  workflow_dispatch: # Allows manual execution from the Actions tab
+
+jobs:
+  update-readme:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Update project list
+        uses: gautamkrishnar/blog-post-workflow@master
+        with:
+          # Must match the placeholder tags in your README.md
+          comment_tag_name: "REPO-LAST-5"
+          # Your GitHub profile activity feed
+          feed_list: "https://github.com/ninadurann.atom"
+          # Maximum number of projects to display
+          max_post_count: 5
+          # Output format for each project
+          template: "<li><a href='$url'>$title</a>: $description</li>"
