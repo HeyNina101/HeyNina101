@@ -21,3 +21,6 @@ class AIEngineer:
 </div>
 
 ---
+## Projects
+---
+
