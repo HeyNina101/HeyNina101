@@ -21,7 +21,7 @@ class AIEngineer:
 </div>
 
 ---
-
+## Tech Stack
 <!-- PROJECTS:START -->
 - **[generative_ai_project](https://github.com/HeyNina101/generative_ai_project)**: A production-ready template to kickstart your Generative AI projects with structure and scalability in mind.
 - **[ai-agent-starter-kit](https://github.com/HeyNina101/ai-agent-starter-kit)**: A collection of expert guides and tutorials on how to build real AI agents. Includes resources from OpenAI, Anthropic, Google, and others working on production-level systems
