@@ -29,30 +29,22 @@ jobs:
           user = "HeyNina101"
           headers = {"Authorization": f"token ${{ secrets.GITHUB_TOKEN }}"}
 
-          # Color palette
-          COLOR_STARS    = "F5C518"  # Yellow (classic stars)
-          COLOR_LICENSE  = "8FA3A8"  # Grayish green (neutral/informative)
-          COLOR_PYTHON   = "4A6355"  # Dark green (solid base)
-          COLOR_AI       = "2C3B35"  # Almost black green (depth/weight)
-          COLOR_TECH     = "B8C4CB"  # Blue-gray (tech/cloud)
-          COLOR_TOOLS    = "8FA3A8"  # Grayish green (tools)
-
           AI_TAGS = [
-              ("RAG",        "RAG",        COLOR_AI),
-              ("agent",      "AI_Agents",  COLOR_AI),
-              ("llm",        "LLM",        COLOR_AI),
-              ("openai",     "OpenAI",     COLOR_TECH),
-              ("anthropic",  "Anthropic",  COLOR_TECH),
-              ("langchain",  "LangChain",  COLOR_TECH),
-              ("langgraph",  "LangGraph",  COLOR_TECH),
-              ("ollama",     "Ollama",     COLOR_TECH),
-              ("gemini",     "Gemini",     COLOR_TECH),
-              ("mistral",    "Mistral",    COLOR_TECH),
-              ("vector",     "Vector_DB",  COLOR_AI),
-              ("workflow",   "Workflow",   COLOR_TOOLS),
-              ("automation", "Automation", COLOR_TOOLS),
-              ("make",       "Make",       COLOR_TOOLS),
-              ("n8n",        "n8n",        COLOR_TOOLS),
+              ("RAG",        "RAG",        "000000"),
+              ("agent",      "AI_Agents",  "000000"),
+              ("llm",        "LLM",        "000000"),
+              ("openai",     "OpenAI",     "000000"),
+              ("anthropic",  "Anthropic",  "000000"),
+              ("langchain",  "LangChain",  "000000"),
+              ("langgraph",  "LangGraph",  "000000"),
+              ("ollama",     "Ollama",     "000000"),
+              ("gemini",     "Gemini",     "000000"),
+              ("mistral",    "Mistral",    "000000"),
+              ("vector",     "Vector_DB",  "000000"),
+              ("workflow",   "Workflow",   "000000"),
+              ("automation", "Automation", "000000"),
+              ("make",       "Make",       "000000"),
+              ("n8n",        "n8n",        "000000"),
           ]
 
           def get_ai_badges(repo):
@@ -69,7 +61,7 @@ jobs:
                       badges.append(
                           f"![{label}](https://img.shields.io/badge/{safe_label}-{color}?style=flat-square&logoColor=white)"
                       )
-              badges.insert(0, f"![Python](https://img.shields.io/badge/Python-{COLOR_PYTHON}?style=flat-square&logo=python&logoColor=white)")
+              badges.insert(0, "![Python](https://img.shields.io/badge/Python-000000?style=flat-square&logo=python&logoColor=white)")
               return " ".join(badges)
 
           try:
@@ -90,16 +82,16 @@ jobs:
 
           markdown_list = "\n"
           for repo in projects:
-              name          = repo['name']
-              url           = repo['html_url']
-              desc          = repo.get('description') or 'No description'
-              stars         = repo.get('stargazers_count', 0)
-              license_info  = repo.get('license')
+              name         = repo['name']
+              url          = repo['html_url']
+              desc         = repo.get('description') or 'No description'
+              stars        = repo.get('stargazers_count', 0)
+              license_info = repo.get('license')
               license_label = license_info['spdx_id'] if license_info else 'Unlicensed'
               safe_license  = license_label.replace("-", "--").replace(" ", "_")
 
-              stars_badge = f"![Stars](https://img.shields.io/badge/★_{stars}-{COLOR_STARS}?style=flat-square&logoColor=white)"
-              lic_badge   = f"![License](https://img.shields.io/badge/{safe_license}-{COLOR_LICENSE}?style=flat-square&logoColor=white)"
+              stars_badge = f"![Stars](https://img.shields.io/badge/★_{stars}-000000?style=flat-square&logoColor=white)"
+              lic_badge   = f"![License](https://img.shields.io/badge/{safe_license}-000000?style=flat-square&logoColor=white)"
               ai_badges   = get_ai_badges(repo)
 
               markdown_list += (
