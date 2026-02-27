@@ -4,7 +4,7 @@
 class AIEngineer:
     name       = "Nina"
     focus      = ["AI Architecture", "Multimodals Agents","RAG Systems"]
-    ai-code    = ["Claude Opus 4.6", "GPT Codex 5.4"]
+    ai-code    = ["Claude Opus 4.6", "GPT Codex 5.3"]
     stack      = ["Python", "LangChain","Prompt Engineering"]
     vector_dbs = ["Pinecone", "Qdrant", "pgvector"]
    
