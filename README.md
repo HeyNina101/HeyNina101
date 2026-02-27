@@ -9,10 +9,6 @@ class AIEngineer:
    
 ```
 
----
-
-## Tech Stack
-
 <div align="center">
 
 ![Python](https://img.shields.io/badge/Python-0D1117?style=for-the-badge&logo=python&logoColor=00D9FF) ![Claude](https://img.shields.io/badge/Claude-0D1117?style=for-the-badge&logo=anthropic&logoColor=D97757) ![OpenAI](https://img.shields.io/badge/GPT_Codex-0D1117?style=for-the-badge&logo=openai&logoColor=white) ![Gemini](https://img.shields.io/badge/Gemini_3-0D1117?style=for-the-badge&logo=google&logoColor=4285F4) ![LangChain](https://img.shields.io/badge/LangChain-0D1117?style=for-the-badge&logo=chainlink&logoColor=00D9FF) <br>
@@ -20,7 +16,6 @@ class AIEngineer:
 
 </div>
 
----
 ## Projects
 <!-- PROJECTS:START -->
 
@@ -50,4 +45,3 @@ class AIEngineer:
 
 <!-- PROJECTS:END -->
 
----
