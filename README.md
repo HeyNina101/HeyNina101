@@ -1,6 +1,6 @@
 
 ```python
-class AIEngineer:
+class AIDeveloper:
     name       = "Nina"
     focus      = ["AI Architecture", "Multimodals Agents","RAG Systems"]
     ai-code    = ["Claude Opus 4.6", "GPT Codex 5.4"]
