@@ -29,22 +29,30 @@ jobs:
           user = "HeyNina101"
           headers = {"Authorization": f"token ${{ secrets.GITHUB_TOKEN }}"}
 
+          # Color palette
+          COLOR_STARS    = "F5C518"  # Yellow (classic stars)
+          COLOR_LICENSE  = "8FA3A8"  # Grayish green (neutral/informative)
+          COLOR_PYTHON   = "4A6355"  # Dark green (solid base)
+          COLOR_AI       = "2C3B35"  # Almost black green (depth/weight)
+          COLOR_TECH     = "B8C4CB"  # Blue-gray (tech/cloud)
+          COLOR_TOOLS    = "8FA3A8"  # Grayish green (tools)
+
           AI_TAGS = [
-              ("RAG",        "RAG",         "FF6B6B"),
-              ("agent",      "AI_Agents",   "7C3AED"),
-              ("llm",        "LLM",         "0EA5E9"),
-              ("openai",     "OpenAI",      "412991"),
-              ("anthropic",  "Anthropic",   "C97B45"),
-              ("langchain",  "LangChain",   "1C7737"),
-              ("langgraph",  "LangGraph",   "2D6A4F"),
-              ("ollama",     "Ollama",      "444444"),
-              ("gemini",     "Gemini",      "1A73E8"),
-              ("mistral",    "Mistral",     "FF7000"),
-              ("vector",     "Vector_DB",   "8B5CF6"),
-              ("workflow",   "Workflow",    "0D9488"),
-              ("automation", "Automation",  "F59E0B"),
-              ("make",       "Make",        "6D28D9"),
-              ("n8n",        "n8n",         "EA4B71"),
+              ("RAG",        "RAG",        COLOR_AI),
+              ("agent",      "AI_Agents",  COLOR_AI),
+              ("llm",        "LLM",        COLOR_AI),
+              ("openai",     "OpenAI",     COLOR_TECH),
+              ("anthropic",  "Anthropic",  COLOR_TECH),
+              ("langchain",  "LangChain",  COLOR_TECH),
+              ("langgraph",  "LangGraph",  COLOR_TECH),
+              ("ollama",     "Ollama",     COLOR_TECH),
+              ("gemini",     "Gemini",     COLOR_TECH),
+              ("mistral",    "Mistral",    COLOR_TECH),
+              ("vector",     "Vector_DB",  COLOR_AI),
+              ("workflow",   "Workflow",   COLOR_TOOLS),
+              ("automation", "Automation", COLOR_TOOLS),
+              ("make",       "Make",       COLOR_TOOLS),
+              ("n8n",        "n8n",        COLOR_TOOLS),
           ]
 
           def get_ai_badges(repo):
@@ -61,7 +69,7 @@ jobs:
                       badges.append(
                           f"![{label}](https://img.shields.io/badge/{safe_label}-{color}?style=flat-square&logoColor=white)"
                       )
-              badges.insert(0, "![Python](https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white)")
+              badges.insert(0, f"![Python](https://img.shields.io/badge/Python-{COLOR_PYTHON}?style=flat-square&logo=python&logoColor=white)")
               return " ".join(badges)
 
           try:
@@ -71,7 +79,6 @@ jobs:
               )
               response.raise_for_status()
               repos = response.json()
-              # FIX: ordenar de más a menos estrellas
               projects = sorted(
                   [r for r in repos if r['name'].lower() != user.lower() and not r['fork']],
                   key=lambda x: x['stargazers_count'],
@@ -83,17 +90,16 @@ jobs:
 
           markdown_list = "\n"
           for repo in projects:
-              name         = repo['name']
-              url          = repo['html_url']
-              desc         = repo.get('description') or 'No description'
-              stars        = repo.get('stargazers_count', 0)
-              license_info = repo.get('license')
-              # FIX: sin espacios y con guiones escapados para URL válida
+              name          = repo['name']
+              url           = repo['html_url']
+              desc          = repo.get('description') or 'No description'
+              stars         = repo.get('stargazers_count', 0)
+              license_info  = repo.get('license')
               license_label = license_info['spdx_id'] if license_info else 'Unlicensed'
               safe_license  = license_label.replace("-", "--").replace(" ", "_")
 
-              stars_badge = f"![Stars](https://img.shields.io/badge/⭐_stars-{stars}-FFD700?style=flat-square&logo=github&logoColor=white)"
-              lic_badge   = f"![License](https://img.shields.io/badge/license-{safe_license}-22C55E?style=flat-square)"
+              stars_badge = f"![Stars](https://img.shields.io/badge/★_{stars}-{COLOR_STARS}?style=flat-square&logoColor=white)"
+              lic_badge   = f"![License](https://img.shields.io/badge/{safe_license}-{COLOR_LICENSE}?style=flat-square&logoColor=white)"
               ai_badges   = get_ai_badges(repo)
 
               markdown_list += (
@@ -130,3 +136,4 @@ jobs:
           git add README.md
           git commit -m "docs: update projects [skip ci]" || exit 0
           git push
+
