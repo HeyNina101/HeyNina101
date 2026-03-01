@@ -66,11 +66,11 @@ jobs:
                   return 0
 
           # Color palette (your nebular brand)
-          COLOR_STARS  = "E8C45A"   # golden
-          COLOR_FORKS  = "5A8FA3"   # blue-grey
-          COLOR_ISSUES = "B07070"   # dusty red
-          COLOR_PRS    = "6B9E82"   # forest green
-          COLOR_LABEL  = "2D5C3F"   # dark green (label background)
+          COLOR_STARS  = "f7b93e"   # golden
+          COLOR_FORKS  = "357a54"   # blue-grey
+          COLOR_ISSUES = "357a54"   # dusty red
+          COLOR_PRS    = "357a54"   # forest green
+          COLOR_LABEL  = "357a54"   # dark green (label background)
 
           def stars_badge(n):
               return f"![Stars](https://img.shields.io/badge/⭐_stars-{n}-{COLOR_STARS}?style=flat-square)"
@@ -87,7 +87,7 @@ jobs:
 
           # Build table
           table = "\n"
-          table += "| 🗂 Project | ⭐ Stars | 🍴 Forks | 🐛 Issues | 🔀 Pull Requests |\n"
+          table += "| Project | ⭐ Stars | Forks | Issues | Pull Requests |\n"
           table += "|:--|:--:|:--:|:--:|:--:|\n"
 
           for repo in projects:
