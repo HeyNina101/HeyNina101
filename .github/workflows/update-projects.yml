@@ -29,41 +29,6 @@ jobs:
           user = "HeyNina101"
           headers = {"Authorization": f"token ${{ secrets.GITHUB_TOKEN }}"}
 
-          AI_TAGS = [
-              ("RAG",        "RAG",         "5A8FA3"),
-              ("agent",      "AI_Agents",   "7C3AED"),
-              ("llm",        "LLM",         "B07070"),
-              ("openai",     "OpenAI",      "4A7A5C"),
-              ("anthropic",  "Anthropic",   "6B9E82"),
-              ("langchain",  "LangChain",   "8A4A4A"),
-              ("langgraph",  "LangGraph",   "6B9E82"),
-              ("ollama",     "Ollama",      "4A7A5C"),
-              ("gemini",     "Gemini",      "5A8FA3"),
-              ("mistral",    "Mistral",     "E8EDEE"),
-              ("vector",     "Vector_DB",   "EDEBE8"),
-              ("workflow",   "Workflow",    "E8C45A"),
-              ("automation", "Automation",  "6B9E82"),
-              ("make",       "Make",        "4A7A5C"),
-              ("n8n",        "n8n",         "6B9E82"),
-          ]
-
-          def get_ai_badges(repo):
-              text = " ".join([
-                  (repo.get("description") or ""),
-                  (repo.get("name") or ""),
-              ]).lower()
-              badges = []
-              seen = set()
-              for keyword, label, color in AI_TAGS:
-                  if keyword.lower() in text and label not in seen:
-                      seen.add(label)
-                      safe_label = label.replace("-", "--")
-                      badges.append(
-                          f"![{label}](https://img.shields.io/badge/{safe_label}-{color}?style=flat-square&logoColor=white)"
-                      )
-              badges.insert(0, "![Python](https://img.shields.io/badge/Python-4A7A5C?style=flat-square&logo=python&logoColor=white)")
-              return " ".join(badges)
-
           try:
               response = requests.get(
                   f"https://api.github.com/users/{user}/repos?sort=stars&per_page=20",
@@ -71,37 +36,79 @@ jobs:
               )
               response.raise_for_status()
               repos = response.json()
-              # FIX: ordenar de más a menos estrellas
+
               projects = sorted(
                   [r for r in repos if r['name'].lower() != user.lower() and not r['fork']],
                   key=lambda x: x['stargazers_count'],
                   reverse=True
-              )[:5]
+              )[:6]
           except Exception as e:
               print(f"Error fetching repos: {e}")
               sys.exit(1)
 
-          markdown_list = "\n"
+          # Fetch open pull requests count for each repo
+          def get_pr_count(repo_name):
+              try:
+                  r = requests.get(
+                      f"https://api.github.com/repos/{user}/{repo_name}/pulls?state=open&per_page=1",
+                      headers=headers
+                  )
+                  # GitHub doesn't return total count directly for PRs,
+                  # so we check the Link header or just count results
+                  prs = r.json()
+                  # Get all open PRs (up to 100)
+                  r2 = requests.get(
+                      f"https://api.github.com/repos/{user}/{repo_name}/pulls?state=open&per_page=100",
+                      headers=headers
+                  )
+                  return len(r2.json())
+              except:
+                  return 0
+
+          # Color palette (your nebular brand)
+          COLOR_STARS  = "E8C45A"   # golden
+          COLOR_FORKS  = "5A8FA3"   # blue-grey
+          COLOR_ISSUES = "B07070"   # dusty red
+          COLOR_PRS    = "6B9E82"   # forest green
+          COLOR_LABEL  = "2D5C3F"   # dark green (label background)
+
+          def stars_badge(n):
+              return f"![Stars](https://img.shields.io/badge/⭐_stars-{n}-{COLOR_STARS}?style=flat-square)"
+
+          def forks_badge(n):
+              return f"![Forks](https://img.shields.io/badge/🍴_forks-{n}-{COLOR_FORKS}?style=flat-square)"
+
+          def issues_badge(n):
+              color = COLOR_ISSUES if n > 0 else "4A7A5C"
+              return f"![Issues](https://img.shields.io/badge/issues-{n}_open-{color}?style=flat-square)"
+
+          def prs_badge(n):
+              return f"![PRs](https://img.shields.io/badge/pull_requests-{n}_open-{COLOR_PRS}?style=flat-square)"
+
+          # Build table
+          table = "\n"
+          table += "| 🗂 Project | ⭐ Stars | 🍴 Forks | 🐛 Issues | 🔀 Pull Requests |\n"
+          table += "|:--|:--:|:--:|:--:|:--:|\n"
+
           for repo in projects:
-              name         = repo['name']
-              url          = repo['html_url']
-              desc         = repo.get('description') or 'No description'
-              stars        = repo.get('stargazers_count', 0)
-              license_info = repo.get('license')
-              # FIX: sin espacios y con guiones escapados para URL válida
-              license_label = license_info['spdx_id'] if license_info else 'Unlicensed'
-              safe_license  = license_label.replace("-", "--").replace(" ", "_")
+              name        = repo['name']
+              url         = repo['html_url']
+              stars       = repo.get('stargazers_count', 0)
+              forks       = repo.get('forks_count', 0)
+              issues      = repo.get('open_issues_count', 0)
+              pr_count    = get_pr_count(name)
+              # open_issues_count includes PRs in GitHub API, so subtract
+              real_issues = max(issues - pr_count, 0)
 
-              stars_badge = f"![Stars](https://img.shields.io/badge/⭐_stars-{stars}-E8C45A?style=flat-square&logo=github&logoColor=white)"
-              lic_badge   = f"![License](https://img.shields.io/badge/license-{safe_license}-4A7A5C?style=flat-square)"
-              ai_badges   = get_ai_badges(repo)
-
-              markdown_list += (
-                  f"#### 🔗 [{name}]({url})\n"
-                  f"{stars_badge} {lic_badge}\\\n"
-                  f"{ai_badges}\n\n"
-                  f"> {desc}\n\n"
+              table += (
+                  f"| [{name}]({url}) "
+                  f"| {stars_badge(stars)} "
+                  f"| {forks_badge(forks)} "
+                  f"| {issues_badge(real_issues)} "
+                  f"| {prs_badge(pr_count)} |\n"
               )
+
+          table += "\n"
 
           with open("README.md", "r", encoding="utf-8") as f:
               content = f.read()
@@ -114,7 +121,7 @@ jobs:
               sys.exit(0)
 
           pattern     = re.escape(start_tag) + ".*?" + re.escape(end_tag)
-          replacement = f"{start_tag}\n{markdown_list}{end_tag}"
+          replacement = f"{start_tag}\n{table}{end_tag}"
           new_content = re.sub(pattern, replacement, content, flags=re.DOTALL)
 
           with open("README.md", "w", encoding="utf-8") as f:
@@ -128,5 +135,5 @@ jobs:
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
           git add README.md
-          git commit -m "docs: update projects [skip ci]" || exit 0
+          git commit -m "docs: update projects table [skip ci]" || exit 0
           git push
