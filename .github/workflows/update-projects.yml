@@ -30,21 +30,21 @@ jobs:
           headers = {"Authorization": f"token ${{ secrets.GITHUB_TOKEN }}"}
 
           AI_TAGS = [
-              ("RAG",        "RAG",         "FF6B6B"),
+              ("RAG",        "RAG",         "5A8FA3"),
               ("agent",      "AI_Agents",   "7C3AED"),
-              ("llm",        "LLM",         "0EA5E9"),
-              ("openai",     "OpenAI",      "412991"),
-              ("anthropic",  "Anthropic",   "C97B45"),
-              ("langchain",  "LangChain",   "1C7737"),
-              ("langgraph",  "LangGraph",   "2D6A4F"),
-              ("ollama",     "Ollama",      "444444"),
-              ("gemini",     "Gemini",      "1A73E8"),
-              ("mistral",    "Mistral",     "FF7000"),
-              ("vector",     "Vector_DB",   "8B5CF6"),
-              ("workflow",   "Workflow",    "0D9488"),
-              ("automation", "Automation",  "F59E0B"),
-              ("make",       "Make",        "6D28D9"),
-              ("n8n",        "n8n",         "EA4B71"),
+              ("llm",        "LLM",         "B07070"),
+              ("openai",     "OpenAI",      "4A7A5C"),
+              ("anthropic",  "Anthropic",   "6B9E82"),
+              ("langchain",  "LangChain",   "8A4A4A"),
+              ("langgraph",  "LangGraph",   "6B9E82"),
+              ("ollama",     "Ollama",      "4A7A5C"),
+              ("gemini",     "Gemini",      "5A8FA3"),
+              ("mistral",    "Mistral",     "E8EDEE"),
+              ("vector",     "Vector_DB",   "EDEBE8"),
+              ("workflow",   "Workflow",    "E8C45A"),
+              ("automation", "Automation",  "6B9E82"),
+              ("make",       "Make",        "4A7A5C"),
+              ("n8n",        "n8n",         "6B9E82"),
           ]
 
           def get_ai_badges(repo):
