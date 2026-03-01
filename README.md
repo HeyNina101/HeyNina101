@@ -19,12 +19,12 @@ class AIDeveloper:
 ## Projects
 <!-- PROJECTS:START -->
 
-| 🗂 Project | ⭐ Stars | 🍴 Forks | 🐛 Issues | 🔀 Pull Requests |
+| Project | ⭐ Stars | Forks | Issues | Pull Requests |
 |:--|:--:|:--:|:--:|:--:|
-| [generative_ai_project](https://github.com/HeyNina101/generative_ai_project) | ![Stars](https://img.shields.io/badge/⭐_stars-886-E8C45A?style=flat-square) | ![Forks](https://img.shields.io/badge/🍴_forks-274-5A8FA3?style=flat-square) | ![Issues](https://img.shields.io/badge/issues-1_open-B07070?style=flat-square) | ![PRs](https://img.shields.io/badge/pull_requests-0_open-6B9E82?style=flat-square) |
-| [ai-agent-starter-kit](https://github.com/HeyNina101/ai-agent-starter-kit) | ![Stars](https://img.shields.io/badge/⭐_stars-377-E8C45A?style=flat-square) | ![Forks](https://img.shields.io/badge/🍴_forks-80-5A8FA3?style=flat-square) | ![Issues](https://img.shields.io/badge/issues-0_open-4A7A5C?style=flat-square) | ![PRs](https://img.shields.io/badge/pull_requests-0_open-6B9E82?style=flat-square) |
-| [ai-agents-101](https://github.com/HeyNina101/ai-agents-101) | ![Stars](https://img.shields.io/badge/⭐_stars-33-E8C45A?style=flat-square) | ![Forks](https://img.shields.io/badge/🍴_forks-12-5A8FA3?style=flat-square) | ![Issues](https://img.shields.io/badge/issues-0_open-4A7A5C?style=flat-square) | ![PRs](https://img.shields.io/badge/pull_requests-0_open-6B9E82?style=flat-square) |
-| [aimin](https://github.com/HeyNina101/aimin) | ![Stars](https://img.shields.io/badge/⭐_stars-14-E8C45A?style=flat-square) | ![Forks](https://img.shields.io/badge/🍴_forks-1-5A8FA3?style=flat-square) | ![Issues](https://img.shields.io/badge/issues-0_open-4A7A5C?style=flat-square) | ![PRs](https://img.shields.io/badge/pull_requests-0_open-6B9E82?style=flat-square) |
+| [generative_ai_project](https://github.com/HeyNina101/generative_ai_project) | ![Stars](https://img.shields.io/badge/⭐_stars-886-f7b93e?style=flat-square) | ![Forks](https://img.shields.io/badge/🍴_forks-274-357a54?style=flat-square) | ![Issues](https://img.shields.io/badge/issues-0_open-4A7A5C?style=flat-square) | ![PRs](https://img.shields.io/badge/pull_requests-0_open-357a54?style=flat-square) |
+| [ai-agent-starter-kit](https://github.com/HeyNina101/ai-agent-starter-kit) | ![Stars](https://img.shields.io/badge/⭐_stars-377-f7b93e?style=flat-square) | ![Forks](https://img.shields.io/badge/🍴_forks-80-357a54?style=flat-square) | ![Issues](https://img.shields.io/badge/issues-0_open-4A7A5C?style=flat-square) | ![PRs](https://img.shields.io/badge/pull_requests-0_open-357a54?style=flat-square) |
+| [ai-agents-101](https://github.com/HeyNina101/ai-agents-101) | ![Stars](https://img.shields.io/badge/⭐_stars-33-f7b93e?style=flat-square) | ![Forks](https://img.shields.io/badge/🍴_forks-12-357a54?style=flat-square) | ![Issues](https://img.shields.io/badge/issues-0_open-4A7A5C?style=flat-square) | ![PRs](https://img.shields.io/badge/pull_requests-0_open-357a54?style=flat-square) |
+| [aimin](https://github.com/HeyNina101/aimin) | ![Stars](https://img.shields.io/badge/⭐_stars-14-f7b93e?style=flat-square) | ![Forks](https://img.shields.io/badge/🍴_forks-1-357a54?style=flat-square) | ![Issues](https://img.shields.io/badge/issues-0_open-4A7A5C?style=flat-square) | ![PRs](https://img.shields.io/badge/pull_requests-0_open-357a54?style=flat-square) |
 
 <!-- PROJECTS:END -->
 
