@@ -16,7 +16,7 @@ class AIDeveloper:
 
 </div>
 
-## Projects
+## Open source projects
 <!-- PROJECTS:START -->
 
 | Project | ⭐ Stars | Forks | Issues | Pull Requests |
