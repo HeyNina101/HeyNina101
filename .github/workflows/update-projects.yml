@@ -79,7 +79,7 @@ jobs:
               return f"![Forks](https://img.shields.io/badge/🍴_forks-{n}-{COLOR_FORKS}?style=flat-square)"
 
           def issues_badge(n):
-              color = COLOR_ISSUES if n > 0 else "4A7A5C"
+              color = COLOR_ISSUES if n > 0 else "30b084"
               return f"![Issues](https://img.shields.io/badge/issues-{n}_open-{color}?style=flat-square)"
 
           def prs_badge(n):
