@@ -61,7 +61,7 @@ jobs:
                       badges.append(
                           f"![{label}](https://img.shields.io/badge/{safe_label}-{color}?style=flat-square&logoColor=white)"
                       )
-              badges.insert(0, "![Python](https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white)")
+              badges.insert(0, "![Python](https://img.shields.io/badge/Python-4A7A5C?style=flat-square&logo=python&logoColor=white)")
               return " ".join(badges)
 
           try:
@@ -92,8 +92,8 @@ jobs:
               license_label = license_info['spdx_id'] if license_info else 'Unlicensed'
               safe_license  = license_label.replace("-", "--").replace(" ", "_")
 
-              stars_badge = f"![Stars](https://img.shields.io/badge/⭐_stars-{stars}-FFD700?style=flat-square&logo=github&logoColor=white)"
-              lic_badge   = f"![License](https://img.shields.io/badge/license-{safe_license}-22C55E?style=flat-square)"
+              stars_badge = f"![Stars](https://img.shields.io/badge/⭐_stars-{stars}-E8C45A?style=flat-square&logo=github&logoColor=white)"
+              lic_badge   = f"![License](https://img.shields.io/badge/license-{safe_license}-4A7A5C?style=flat-square)"
               ai_badges   = get_ai_badges(repo)
 
               markdown_list += (
