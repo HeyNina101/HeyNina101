@@ -97,7 +97,7 @@ jobs:
               ai_badges   = get_ai_badges(repo)
 
               markdown_list += (
-                  f"#### <a href='{url}' style='color:#4A7A5C'>{name}</a>\n"
+                  f"#### [![{name}](https://img.shields.io/badge/{name.replace('-', '--')}-4A7A5C?style=flat-square)]({url})\n"
                   f"{stars_badge} {lic_badge}\\\n"
                   f"{ai_badges}\n\n"
                   f"> {desc}\n\n"
