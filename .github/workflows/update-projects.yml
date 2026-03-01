@@ -67,10 +67,10 @@ jobs:
 
           # Color palette (your nebular brand)
           COLOR_STARS  = "f7b93e"   # golden
-          COLOR_FORKS  = "357a54"   # blue-grey
-          COLOR_ISSUES = "357a54"   # dusty red
-          COLOR_PRS    = "357a54"   # forest green
-          COLOR_LABEL  = "357a54"   # dark green (label background)
+          COLOR_FORKS  = "30b084"   # blue-grey
+          COLOR_ISSUES = "30b084"   # dusty red
+          COLOR_PRS    = "30b084"   # forest green
+          COLOR_LABEL  = "30b084"   # dark green (label background)
 
           def stars_badge(n):
               return f"![Stars](https://img.shields.io/badge/⭐_stars-{n}-{COLOR_STARS}?style=flat-square)"
