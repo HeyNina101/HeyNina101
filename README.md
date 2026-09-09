@@ -2,14 +2,11 @@
 
 <div align="center">
 
-![Python](https://img.shields.io/badge/Python-485e4e?style=for-the-badge&logo=python&logoColor=F5F0EB)
-![Claude](https://img.shields.io/badge/Claude-485e4e?style=for-the-badge&logo=anthropic&logoColor=F5F0EB)
-![OpenAI](https://img.shields.io/badge/GPT_Codex-485e4e?style=for-the-badge&logo=openai&logoColor=F5F0EB)
-![LangChain](https://img.shields.io/badge/LangChain-485e4e?style=for-the-badge&logo=chainlink&logoColor=F5F0EB)
-![MCP](https://img.shields.io/badge/MCP_Protocol-485e4e?style=for-the-badge&logo=anthropic&logoColor=F5F0EB)
-![RAG](https://img.shields.io/badge/RAG-485e4e?style=for-the-badge&logo=databricks&logoColor=F5F0EB)
-![Streamlit](https://img.shields.io/badge/Streamlit-485e4e?style=for-the-badge&logo=streamlit&logoColor=F5F0EB)
-![Gradio](https://img.shields.io/badge/Gradio-485e4e?style=for-the-badge&logo=gradio&logoColor=F5F0EB)
+![AI Digital Product](https://img.shields.io/badge/AI_Digital_Product-485e4e?style=for-the-badge)
+![AI Lab](https://img.shields.io/badge/AI_Lab-485e4e?style=for-the-badge)
+![Creative Technology](https://img.shields.io/badge/Creative_Technology-485e4e?style=for-the-badge)
+![Systems Thinking](https://img.shields.io/badge/Systems_Thinking-485e4e?style=for-the-badge)
+![Emerging Tech](https://img.shields.io/badge/Emerging_Tech-485e4e?style=for-the-badge)
 
 </div>
 
